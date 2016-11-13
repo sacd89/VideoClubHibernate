@@ -12,6 +12,9 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import mx.uach.videoclubhb.Actor;
 import mx.uach.videoclubhb.Cinta;
+import mx.uach.videoclubhb.Director;
+import mx.uach.videoclubhb.Pelicula;
+import mx.uach.videoclubhb.enums.Genero;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -51,9 +54,11 @@ public class CintaTest {
      public void hello() {
          EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
         EntityManager em = emf.createEntityManager();
-        Cinta a = new Cinta(Integer.SIZE, pelicula);
-        Cinta b = new Cinta(Integer.SIZE, pelicula);
-        Cinta c = new Cinta(Integer.SIZE, pelicula);
+        Director director = new Director("Prueba 2");
+        Pelicula pelicula = new Pelicula("Prueba", Genero.TERROR, 150, director);
+        Cinta a = new Cinta(1, pelicula);
+        Cinta b = new Cinta(2, pelicula);
+        Cinta c = new Cinta(3, pelicula);
         em.getTransaction().begin();;
         em.persist(a);
         em.persist(b);
@@ -61,7 +66,7 @@ public class CintaTest {
         em.getTransaction().commit();
         
         
-        em.getTransaction().begin();;
+        em.getTransaction().begin();
         c.setNumCopia(4);
         em.persist(c);
         em.getTransaction().commit();

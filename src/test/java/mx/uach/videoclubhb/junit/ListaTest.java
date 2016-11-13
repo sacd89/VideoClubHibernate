@@ -49,28 +49,28 @@ public class ListaTest {
     //
      @Test
      public void hello() {
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-        EntityManager em = emf.createEntityManager();
-        Lista a = new Lista(fecha, hora, Boolean.TRUE, socio, pelicula);
-        Lista b = new Lista(fecha, hora, Boolean.TRUE, socio, pelicula);
-        Lista c = new Lista(fecha, hora, Boolean.TRUE, socio, pelicula);
-        em.getTransaction().begin();;
-        em.persist(a);
-        em.persist(b);
-        em.persist(c);
-        em.getTransaction().commit();
-        
-        
-        em.getTransaction().begin();
-        c.setEstatus(Boolean.TRUE);
-        em.persist(c);
-        em.getTransaction().commit();
-        
-        
-        Query q = em.createQuery("SELECT a FROM Lista a");
-        List<Lista> listas = q.getResultList();
-        for (Lista lista : listas) {
-            System.out.println("listas = " + lista);
-        }
+//         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+//        EntityManager em = emf.createEntityManager();
+//        Lista a = new Lista(fecha, hora, Boolean.TRUE, socio, pelicula);
+//        Lista b = new Lista(fecha, hora, Boolean.TRUE, socio, pelicula);
+//        Lista c = new Lista(fecha, hora, Boolean.TRUE, socio, pelicula);
+//        em.getTransaction().begin();;
+//        em.persist(a);
+//        em.persist(b);
+//        em.persist(c);
+//        em.getTransaction().commit();
+//        
+//        
+//        em.getTransaction().begin();
+//        c.setEstatus(Boolean.TRUE);
+//        em.persist(c);
+//        em.getTransaction().commit();
+//        
+//        
+//        Query q = em.createQuery("SELECT a FROM Lista a");
+//        List<Lista> listas = q.getResultList();
+//        for (Lista lista : listas) {
+//            System.out.println("listas = " + lista);
+//        }
      }
 }

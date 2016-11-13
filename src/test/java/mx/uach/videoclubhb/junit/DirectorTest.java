@@ -24,22 +24,22 @@ import static org.junit.Assert.*;
  * @author dsantillanes
  */
 public class DirectorTest {
-    
+
     public DirectorTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -47,9 +47,9 @@ public class DirectorTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
-     public void hello() {
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+    @Test
+    public void hello() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
         EntityManager em = emf.createEntityManager();
         Director a = new Director("Tim Burton");
         Director b = new Director("James Cameron");
@@ -59,18 +59,16 @@ public class DirectorTest {
         em.persist(b);
         em.persist(c);
         em.getTransaction().commit();
-        
-        
-        em.getTransaction().begin();;
+
+        em.getTransaction().begin();
         c.setNombre("Hola");
         em.persist(c);
         em.getTransaction().commit();
-        
-        
+
         Query q = em.createQuery("SELECT a FROM Director a");
         List<Director> directores = q.getResultList();
         for (Director director : directores) {
             System.out.println("directores= " + director);
         }
-     }
+    }
 }

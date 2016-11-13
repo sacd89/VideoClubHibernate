@@ -50,28 +50,28 @@ public class PrestamoTest {
     //
      @Test
      public void hello() {
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-        EntityManager em = emf.createEntityManager();
-        Prestamo a = new Prestamo(fechaEntrega, Prestamos.E, ficha, cinta);
-        Prestamo b = new Prestamo(fechaEntrega, Prestamos.E, ficha, cinta);
-        Prestamo c = new Prestamo(fechaEntrega, Prestamos.E, ficha, cinta);
-        em.getTransaction().begin();;
-        em.persist(a);
-        em.persist(b);
-        em.persist(c);
-        em.getTransaction().commit();
-        
-        
-        em.getTransaction().begin();;
-        c.setEstatus(Prestamos.E);
-        em.persist(c);
-        em.getTransaction().commit();
-        
-        
-        Query q = em.createQuery("SELECT a FROM Prestamo a");
-        List<Prestamo> prestamos = q.getResultList();
-        for (Prestamo prestamo : prestamos) {
-            System.out.println("prestamo = " + prestamo);
-        }
+//         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+//        EntityManager em = emf.createEntityManager();
+//        Prestamo a = new Prestamo(fechaEntrega, Prestamos.E, ficha, cinta);
+//        Prestamo b = new Prestamo(fechaEntrega, Prestamos.E, ficha, cinta);
+//        Prestamo c = new Prestamo(fechaEntrega, Prestamos.E, ficha, cinta);
+//        em.getTransaction().begin();;
+//        em.persist(a);
+//        em.persist(b);
+//        em.persist(c);
+//        em.getTransaction().commit();
+//        
+//        
+//        em.getTransaction().begin();;
+//        c.setEstatus(Prestamos.E);
+//        em.persist(c);
+//        em.getTransaction().commit();
+//        
+//        
+//        Query q = em.createQuery("SELECT a FROM Prestamo a");
+//        List<Prestamo> prestamos = q.getResultList();
+//        for (Prestamo prestamo : prestamos) {
+//            System.out.println("prestamo = " + prestamo);
+//        }
      }
 }

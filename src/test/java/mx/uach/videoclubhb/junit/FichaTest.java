@@ -49,28 +49,28 @@ public class FichaTest {
     //
      @Test
      public void hello() {
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-        EntityManager em = emf.createEntityManager();
-        Ficha a = new Ficha(fechaPrestamo, socio);
-        Ficha b = new Ficha(fechaPrestamo, socio);
-        Ficha c = new Ficha(fechaPrestamo, socio);
-        em.getTransaction().begin();;
-        em.persist(a);
-        em.persist(b);
-        em.persist(c);
-        em.getTransaction().commit();
-        
-        
-        em.getTransaction().begin();;
-        c.setSocio("Soojung");
-        em.persist(c);
-        em.getTransaction().commit();
-        
-        
-        Query q = em.createQuery("SELECT a FROM Ficha a");
-        List<Ficha> fichas = q.getResultList();
-        for (Ficha ficha : fichas) {
-            System.out.println("Fichas= " + ficha);
-        }
+//         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+//        EntityManager em = emf.createEntityManager();
+//        Ficha a = new Ficha(fechaPrestamo, socio);
+//        Ficha b = new Ficha(fechaPrestamo, socio);
+//        Ficha c = new Ficha(fechaPrestamo, socio);
+//        em.getTransaction().begin();;
+//        em.persist(a);
+//        em.persist(b);
+//        em.persist(c);
+//        em.getTransaction().commit();
+//        
+//        
+//        em.getTransaction().begin();;
+//        c.setSocio("Soojung");
+//        em.persist(c);
+//        em.getTransaction().commit();
+//        
+//        
+//        Query q = em.createQuery("SELECT a FROM Ficha a");
+//        List<Ficha> fichas = q.getResultList();
+//        for (Ficha ficha : fichas) {
+//            System.out.println("Fichas= " + ficha);
+//        }
      }
 }

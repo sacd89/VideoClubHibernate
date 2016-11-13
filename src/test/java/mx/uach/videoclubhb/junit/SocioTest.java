@@ -51,9 +51,9 @@ public class SocioTest {
      public void hello() {
          EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
         EntityManager em = emf.createEntityManager();
-        Socio a = new Socio(nombre, direccion, telefono);
-        Socio b = new Socio(nombre, direccion, telefono);
-        Socio c = new Socio(nombre, direccion, telefono);
+        Socio a = new Socio("Daniela Santillanes", "Prueba1", "1111234");
+        Socio b = new Socio("Prueba2", "Prueba2", "456548621");
+        Socio c = new Socio("Prueba3", "Prueba3", "3141234568");
         em.getTransaction().begin();;
         em.persist(a);
         em.persist(b);
@@ -62,7 +62,7 @@ public class SocioTest {
         
         
         em.getTransaction().begin();;
-        c.setNombre("Consuelo Ararat");
+        c.setNombre("Prueba4");
         em.persist(c);
         em.getTransaction().commit();
         

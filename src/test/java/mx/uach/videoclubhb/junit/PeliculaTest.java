@@ -26,22 +26,22 @@ import static org.junit.Assert.*;
  * @author dsantillanes
  */
 public class PeliculaTest {
-    
+
     public PeliculaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -49,32 +49,29 @@ public class PeliculaTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
-     public void hello() {
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+    @Test
+    public void hello() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
         EntityManager em = emf.createEntityManager();
-        Director director = new Director();
-        director.getId();
-        Pelicula a = new Pelicula("Ralph El Demoledor", Genero.ANIMADA , 89, director);
-        Pelicula b = new Pelicula("Lluvia de Hamburguesas", Genero.ANIMADA , 89, director);
-        Pelicula c = new Pelicula("Monsters Inc", Genero.ANIMADA , 89, director);
+        Director director = new Director("Prueba 2");
+        Pelicula a = new Pelicula("Ralph El Demoledor", Genero.ANIMADA, 89, director);
+        Pelicula b = new Pelicula("Lluvia de Hamburguesas", Genero.ANIMADA, 89, director);
+        Pelicula c = new Pelicula("Monsters Inc", Genero.ANIMADA, 89, director);
         em.getTransaction().begin();
         em.persist(a);
         em.persist(b);
         em.persist(c);
         em.getTransaction().commit();
-        
-        
+
         em.getTransaction().begin();;
         c.setTitulo("Monster Inc.");
         em.persist(c);
         em.getTransaction().commit();
-        
-        
+
         Query q = em.createQuery("SELECT a FROM Pelicula a");
         List<Pelicula> peliculas = q.getResultList();
         for (Pelicula pelicula : peliculas) {
             System.out.println("peliculas = " + pelicula);
         }
-     }
+    }
 }

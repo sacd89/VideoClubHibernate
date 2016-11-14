@@ -1,39 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mx.uach.videoclubhb;
 
 import java.io.Serializable;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
+ * Modelo para mappear los actores de las peliculas del VideoClub
  *
- * @author dsantillanes
+ * @author Daniela Santillanes Castro
+ * @version 1.0
+ * @since 06/10/2016
  */
 @Entity
-public class Actor implements Serializable{
+public class Actor implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Método que obtiene el id del socio.
+     *
+     * @return id que es el id del socio.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Método que asigna un nombre a un socio.
+     *
+     * @param id que es el id del socio.
+     */
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     private String nombre;
     private String apellido;
 
@@ -90,7 +95,7 @@ public class Actor implements Serializable{
         this.apellido = apellido;
     }
 
-     @Override
+    @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
@@ -109,10 +114,15 @@ public class Actor implements Serializable{
         }
         return true;
     }
-    
-     @Override
+
+    /**
+     * Método donde declaramos el formato para impresión.
+     *
+     * @return String con los datos del actor.
+     */
+    @Override
     public String toString() {
         return String.format("%s %s", this.getNombre(), this.getApellido());
     }
-    
+
 }

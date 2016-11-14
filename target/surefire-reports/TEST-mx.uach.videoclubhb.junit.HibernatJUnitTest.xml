@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="mx.uach.videoclubhb.junit.HibernatJUnitTest" time="1.359" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="mx.uach.videoclubhb.junit.HibernatJUnitTest" time="10.541" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/home/dsantillanes/jdk1.8.0_111/jre/lib/amd64"/>
@@ -61,5 +61,12 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="PrestamosTest" time="1.303"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="sociosTest" time="8.336"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="directoresTest" time="0.356"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="listasTest" time="0.428"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="peliculasTest" time="0.355"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="PrestamosTest" time="0.287"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="actoresTest" time="0.178"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="cintaTest" time="0.31"/>
+  <testcase classname="mx.uach.videoclubhb.junit.HibernatJUnitTest" name="fichasTest" time="0.234"/>
 </testsuite>

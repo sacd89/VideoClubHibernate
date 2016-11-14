@@ -20,10 +20,20 @@ public class Director implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Método que obtiene el id del socio.
+     *
+     * @return id que es el id del socio.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Método que asigna un nombre a un socio.
+     *
+     * @param id que es el id del socio.
+     */
     public void setId(Long id) {
         this.id = id;
     }
@@ -84,6 +94,11 @@ public class Director implements Serializable{
         return true;
     }
     
+        /**
+     * Método donde declaramos el formato para impresión.
+     * 
+     * @return String con los datos del director.
+     */
     @Override
     public String toString() {
         return String.format("%s", this.getNombre());

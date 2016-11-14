@@ -15,17 +15,27 @@ import mx.uach.videoclubhb.enums.Genero;
  * @since 06/10/2016
  */
 @Entity
-public class Pelicula implements Serializable{
+public class Pelicula implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Método que obtiene el id del socio.
+     *
+     * @return id que es el id del socio.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Método que asigna un nombre a un socio.
+     *
+     * @param id que es el id del socio.
+     */
     public void setId(Long id) {
         this.id = id;
     }
@@ -34,7 +44,7 @@ public class Pelicula implements Serializable{
     private Genero genero;
     private Integer duracion;
     private Director director;
-    
+
     /**
      * Constructor vacio.
      */
@@ -128,8 +138,8 @@ public class Pelicula implements Serializable{
     public void setDirector(Director director) {
         this.director = director;
     }
-    
-     @Override
+
+    @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
@@ -148,7 +158,12 @@ public class Pelicula implements Serializable{
         }
         return true;
     }
-    
+
+    /**
+     * Método donde declaramos el formato para impresión.
+     *
+     * @return String con los datos de la pelicula.
+     */
     @Override
     public String toString() {
         return String.format("%s %s", this.getTitulo(), this.getDuracion());

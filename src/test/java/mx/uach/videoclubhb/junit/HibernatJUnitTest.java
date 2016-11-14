@@ -30,7 +30,7 @@ import static org.junit.Assert.*;
 
 /**
  * Pruebas del Hibernate
- * 
+ *
  * @author Daniela Santillanes Castro
  */
 public class HibernatJUnitTest {
@@ -68,57 +68,33 @@ public class HibernatJUnitTest {
      * Prueba Unitaria para obtener ciertas cintas y evaluamos si se encontro
      * dicha cinta haciendo busquedas y modificando cintas.
      */
-//    @Test
-//    public void cintaTest() {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-//        EntityManager em = emf.createEntityManager();
+    @Test
+    public void cintaTest() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+        EntityManager em = emf.createEntityManager();
 //        Query d = em.createQuery("SELECT d FROM Pelicula d WHERE id=1");
 //        Pelicula pelicula = (Pelicula) d.getSingleResult();
-//        Cinta a = new Cinta(1, pelicula);
-//        Cinta b = new Cinta(2, pelicula);
-//        Cinta c = new Cinta(3, pelicula);
-//        em.getTransaction().begin();
-//        em.persist(a);
-//        em.persist(b);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//
-//        em.getTransaction().begin();
-//        c.setNumCopia(4);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//
-//        Query q = em.createQuery("SELECT a FROM Cinta a");
-//        List<Cinta> cintas = q.getResultList();
-//        for (Cinta cinta : cintas) {
-//            System.out.println("cintas= " + cinta);
-//        }
-// EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-//        EntityManager em = emf.createEntityManager();
-//        Director director = new Director("Prueba 2");
-//        Pelicula pelicula = new Pelicula("Prueba", Genero.TERROR, 150, director);
-//        Cinta a = new Cinta(1, pelicula);
-//        Cinta b = new Cinta(2, pelicula);
-//        Cinta c = new Cinta(3, pelicula);
-//        em.getTransaction().begin();;
-//        em.persist(a);
-//        em.persist(b);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//        
-//        
-//        em.getTransaction().begin();
-//        c.setNumCopia(4);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//        
-//        
-//        Query q = em.createQuery("SELECT a FROM Cinta a");
-//        List<Cinta> cintas = q.getResultList();
-//        for (Cinta cinta : cintas) {
-//            System.out.println("cintas= " + cinta);
-//        }
-//    }
+        Pelicula pelicula = null;
+        Cinta a = new Cinta(1, pelicula);
+        Cinta b = new Cinta(2, pelicula);
+        Cinta c = new Cinta(3, pelicula);
+        em.getTransaction().begin();
+        em.persist(a);
+        em.persist(b);
+        em.persist(c);
+        em.getTransaction().commit();
+
+        em.getTransaction().begin();
+        c.setNumCopia(4);
+        em.persist(c);
+        em.getTransaction().commit();
+
+        Query q = em.createQuery("SELECT a FROM Cinta a");
+        List<Cinta> cintas = q.getResultList();
+        for (Cinta cinta : cintas) {
+            System.out.println("cintas= " + cinta);
+        }
+    }
     
     /**
      * Prueba Unitaria para obtener ciertos directores y evaluamos si se
@@ -148,104 +124,72 @@ public class HibernatJUnitTest {
             System.out.println("directores= " + director);
         }
     }
-    
     /**
      * Prueba Unitaria para obtener ciertas fichas y evaluamos si se encontro
      * dicha ficha haciendo busquedas y modificando fichas.
      */
-//    @Test
-//    public void fichasTest() {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-//        EntityManager em = emf.createEntityManager();
-//        Query d = em.createQuery("SELECT d FROM Socio d WHERE id=1");
-//        Socio socio = (Socio) d.getSingleResult();
-//        Ficha a = new Ficha(Date.valueOf("2016-07-25"), socio);
-//        Ficha b = new Ficha(Date.valueOf("2015-07-25"), socio);
-//        Ficha c = new Ficha(Date.valueOf("2014-07-25"), socio);
-//        em.getTransaction().begin();;
-//        em.persist(a);
-//        em.persist(b);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//        
-//        d = em.createQuery("SELECT d FROM Socio d WHERE id=2");
-//        Socio socio2 = (Socio) d.getSingleResult();
-//        em.getTransaction().begin();;
-//        c.setSocio(socio2);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//        
-//        
-//        Query q = em.createQuery("SELECT a FROM Ficha a");
-//        List<Ficha> fichas = q.getResultList();
-//        for (Ficha ficha : fichas) {
-//            System.out.println("Fichas= " + ficha);
-//        }
-//    }
+    @Test
+    public void fichasTest() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+        EntityManager em = emf.createEntityManager();
+        Query d = em.createQuery("SELECT d FROM Socio d WHERE id=1");
+        Socio socio = (Socio) d.getSingleResult();
+        Ficha a = new Ficha(Date.valueOf("2016-07-25"), socio);
+        Ficha b = new Ficha(Date.valueOf("2015-07-25"), socio);
+        Ficha c = new Ficha(Date.valueOf("2014-07-25"), socio);
+        em.getTransaction().begin();;
+        em.persist(a);
+        em.persist(b);
+        em.persist(c);
+        em.getTransaction().commit();
+        
+        d = em.createQuery("SELECT d FROM Socio d WHERE id=2");
+        Socio socio2 = (Socio) d.getSingleResult();
+        em.getTransaction().begin();;
+        c.setSocio(socio2);
+        em.persist(c);
+        em.getTransaction().commit();
+        
+        
+        Query q = em.createQuery("SELECT a FROM Ficha a");
+        List<Ficha> fichas = q.getResultList();
+        for (Ficha ficha : fichas) {
+            System.out.println("Fichas= " + ficha);
+        }
+    }
     
     /**
      * Prueba Unitaria para obtener ciertas listas y evaluamos si se encontro
      * dicha lista haciendo busquedas y modificando listas.
      */
-//    @Test
-//    public void listasTest() {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-//        EntityManager em = emf.createEntityManager();
-//        Query d = em.createQuery("SELECT d FROM Socio d WHERE id=1");
-//        Socio socio = (Socio) d.getSingleResult();
-//        d = em.createQuery("SELECT d FROM Pelicula d WHERE id=1");
-//        Pelicula pelicula = (Pelicula) d.getSingleResult();
-//        Lista a = new Lista(Date.valueOf("2016-07-07"), Date.valueOf("2016-07-07"), 
-//                Boolean.TRUE, socio, pelicula);
-////        Lista b = new Lista(Date.valueOf("2015-07-07"), Date.valueOf("2015-07-07"), Boolean.TRUE, socio, pelicula);
-////        Lista c = new Lista(Date.valueOf("2014-07-07"), Date.valueOf("2014-07-07"), Boolean.FALSE, socio, pelicula);
-//        em.getTransaction().begin();
-//        em.persist(a);
-////        em.persist(b);
-////        em.persist(c);
-//        em.getTransaction().commit();
-//        
-//        
-////        em.getTransaction().begin();
-////        c.setEstatus(Boolean.TRUE);
-////        em.persist(c);
-////        em.getTransaction().commit();
-////        
-////        
-//        Query q = em.createQuery("SELECT a FROM Lista a");
-//        List<Lista> listas = q.getResultList();
-//        for (Lista lista : listas) {
-//            System.out.println("listas = " + lista);
-//        }
-// EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-//        EntityManager em = emf.createEntityManager();
-//        Socio socio = new Socio("Prueba1", "Prueba1", "Prueba1");
-//        Director director = new Director("Prueba1");
-//        Pelicula pelicula = new Pelicula("Prueba1", Genero.TERROR, 80, director);
-//       Lista a = new Lista(Date.valueOf("2016-07-07"), Date.valueOf("2016-07-07"), 
-//                Boolean.TRUE, socio, pelicula);
-//        Lista b = new Lista(Date.valueOf("2015-07-07"), Date.valueOf("2015-07-07"), Boolean.TRUE, socio, pelicula);
-//        Lista c = new Lista(Date.valueOf("2014-07-07"), Date.valueOf("2014-07-07"), Boolean.FALSE, socio, pelicula);
-//        em.getTransaction().begin();;
-//        em.persist(a);
-//        em.persist(b);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//        
-//        
-//        em.getTransaction().begin();
-//        c.setEstatus(Boolean.TRUE);
-//        em.persist(c);
-//        em.getTransaction().commit();
-//        
-//        
-//        Query q = em.createQuery("SELECT a FROM Lista a");
-//        List<Lista> listas = q.getResultList();
-//        for (Lista lista : listas) {
-//            System.out.println("listas = " + lista);
-//        }
-//    }
-//
+    @Test
+    public void listasTest() {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+        EntityManager em = emf.createEntityManager();
+        Socio socio = null;
+        Pelicula pelicula = null;
+        Lista a = new Lista(Date.valueOf("2016-07-07"), Date.valueOf("2016-07-07"), Boolean.TRUE, socio, pelicula);
+        Lista b = new Lista(Date.valueOf("2015-07-07"), Date.valueOf("2015-07-07"), Boolean.TRUE, socio, pelicula);
+        Lista c = new Lista(Date.valueOf("2014-07-07"), Date.valueOf("2014-07-07"), Boolean.FALSE, socio, pelicula);
+        em.getTransaction().begin();;
+        em.persist(a);
+        em.persist(b);
+        em.persist(c);
+        em.getTransaction().commit();
+
+        em.getTransaction().begin();
+        c.setEstatus(Boolean.TRUE);
+        em.persist(c);
+        em.getTransaction().commit();
+
+        Query q = em.createQuery("SELECT a FROM Lista a");
+        List<Lista> listas = q.getResultList();
+        for (Lista lista : listas) {
+            System.out.println("listas = " + lista);
+        }
+    }
+
     /**
      * Prueba Unitaria para obtener ciertas peliculas y evaluamos si se encontro
      * dicha pelicula haciendo busquedas y modificando peliculas.
@@ -276,49 +220,37 @@ public class HibernatJUnitTest {
             System.out.println("peliculas = " + pelicula);
         }
     }
-    
+
     /**
      * Prueba Unitaria para obtener ciertos prestamos y evaluamos si se encontro
      * dicho prestamo haciendo busquedas y modificando prestamos.
      */
-//    @Test
-//    public void PrestamosTest() {
-//        try {
-//            EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
-//            EntityManager em = emf.createEntityManager();
-////            Query d = em.createQuery("SELECT d FROM Ficha d WHERE id=1");
-////            Ficha ficha = (Ficha) d.getSingleResult();
-//            Query f = em.createQuery("SELECT d FROM Cinta d WHERE id=1");
-//            Cinta cinta = (Cinta) f.getSingleResult();
-//        Socio socio = new Socio("Daniela", "prueba1", "1234567");
-//        Ficha ficha = new Ficha(Date.valueOf("2016-08-08"), socio);
-////        Director director = new Director("prueba5");
-////        Pelicula pelicula = new Pelicula("prueba3", Genero.TERROR, 50, director);
-////        Cinta cinta = new Cinta(3, pelicula);
-//            Prestamo a = new Prestamo(Date.valueOf("2016-08-08"), Prestamos.E, ficha, cinta);
-////            Prestamo b = new Prestamo(Date.valueOf("2015-08-08"), Prestamos.P, ficha, cinta);
-////            Prestamo c = new Prestamo(Date.valueOf("2014-08-08"), Prestamos.V, ficha, cinta);
-//            em.getTransaction().begin();
-//            em.persist(a);
-////            em.persist(b);
-////            em.persist(c);
-//            em.getTransaction().commit();
-//
-////            em.getTransaction().begin();;
-////            c.setEstatus(Prestamos.E);
-////            em.persist(c);
-////            em.getTransaction().commit();
-//
-////            Query q = em.createQuery("SELECT a FROM Prestamo a");
-////            List<Prestamo> prestamos = q.getResultList();
-////            for (Prestamo prestamo : prestamos) {
-////                System.out.println("prestamo = " + prestamo);
-////            }
-//
-//        } catch (Exception ex) {
-//            System.out.println("AQUIIIIIIIIIIIIIIIIIIII" + ex);
-//        }
-//    }
+    @Test
+    public void PrestamosTest() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoClubPU");
+        EntityManager em = emf.createEntityManager();
+        Ficha ficha = null;
+        Cinta cinta = null;
+        Prestamo a = new Prestamo(Date.valueOf("2016-08-08"), Prestamos.E, ficha, cinta);
+        Prestamo b = new Prestamo(Date.valueOf("2015-08-08"), Prestamos.P, ficha, cinta);
+        Prestamo c = new Prestamo(Date.valueOf("2014-08-08"), Prestamos.V, ficha, cinta);
+        em.getTransaction().begin();
+        em.persist(a);
+        em.persist(b);
+        em.persist(c);
+        em.getTransaction().commit();
+
+        em.getTransaction().begin();;
+        c.setEstatus(Prestamos.E);
+        em.persist(c);
+        em.getTransaction().commit();
+
+        Query q = em.createQuery("SELECT a FROM Prestamo a");
+        List<Prestamo> prestamos = q.getResultList();
+        for (Prestamo prestamo : prestamos) {
+            System.out.println("prestamo = " + prestamo);
+        }
+    }
 
     /**
      * Prueba Unitaria para obtener ciertos socios y evaluamos si se encontro

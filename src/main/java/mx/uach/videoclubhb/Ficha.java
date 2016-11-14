@@ -15,21 +15,30 @@ import javax.persistence.Id;
  * @since 06/10/2016
  */
 @Entity
-public class Ficha implements Serializable{
+public class Ficha implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Método que obtiene el id del socio.
+     *
+     * @return id que es el id del socio.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Método que asigna un nombre a un socio.
+     *
+     * @param id que es el id del socio.
+     */
     public void setId(Long id) {
         this.id = id;
     }
-
     private Date fechaPrestamo;
     private Socio socio;
 
@@ -86,8 +95,8 @@ public class Ficha implements Serializable{
     public void setSocio(Socio socio) {
         this.socio = socio;
     }
-    
-     @Override
+
+    @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
@@ -106,7 +115,12 @@ public class Ficha implements Serializable{
         }
         return true;
     }
-    
+
+    /**
+     * Método donde declaramos el formato para impresión.
+     *
+     * @return String con los datos de la ficha.
+     */
     @Override
     public String toString() {
         return String.format("%s %s", this.getFechaPrestamo(), this.getSocio());

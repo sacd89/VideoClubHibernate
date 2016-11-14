@@ -15,17 +15,27 @@ import javax.persistence.Id;
  * @since 06/10/2016
  */
 @Entity
-public class Lista implements Serializable{
+public class Lista implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Método que obtiene el id del socio.
+     *
+     * @return id que es el id del socio.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Método que asigna un nombre a un socio.
+     *
+     * @param id que es el id del socio.
+     */
     public void setId(Long id) {
         this.id = id;
     }
@@ -149,8 +159,8 @@ public class Lista implements Serializable{
     public void setPelicula(Pelicula pelicula) {
         this.pelicula = pelicula;
     }
-    
-     @Override
+
+    @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
@@ -169,6 +179,12 @@ public class Lista implements Serializable{
         }
         return true;
     }
+
+    /**
+     * Método donde declaramos el formato para impresión.
+     *
+     * @return String con los datos de la lista.
+     */
     @Override
     public String toString() {
         return String.format("%s %s", this.getEstatus(), this.getPelicula(), this.getSocio());
